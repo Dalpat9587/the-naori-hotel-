@@ -13,228 +13,70 @@ body{font-family:'Poppins',sans-serif;background:#0e0e0e;color:#fff;overflow-x:h
 
 /* NAVBAR */
 nav{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:25px 8%;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-z-index:1000;
+position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;
+padding:20px 8%;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);z-index:1000;transition:.5s;
 }
-.logo{
-font-size:42px;
-font-weight:900;
-font-family:'Playfair Display',serif;
-color:#d4af37;
-letter-spacing:4px;
-text-shadow:4px 4px 20px rgba(0,0,0,0.8);
-}
-nav a{
-color:#fff;
-margin-left:35px;
-text-decoration:none;
-font-size:18px;
-transition:.3s;
-}
+nav.scrolled{background:rgba(0,0,0,0.95);}
+.logo{font-size:42px;font-weight:900;font-family:'Playfair Display',serif;color:#d4af37;letter-spacing:3px;text-shadow:2px 2px 10px rgba(0,0,0,0.7);}
+nav a{color:#fff;margin-left:30px;text-decoration:none;font-size:18px;transition:.3s;}
 nav a:hover{color:#d4af37}
 
 /* HERO CAROUSEL */
-.hero-carousel{
-position:relative;
-width:100%;
-height:100vh;
-overflow:hidden;
-}
-.hero-slide{
-position:absolute;
-width:100%;
-height:100%;
-background-size:cover;
-background-position:center;
-opacity:0;
-transition:opacity 1s ease-in-out;
-}
-.hero-slide.active{
-opacity:1;
-}
-.hero-content{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-z-index:10;
-background:rgba(0,0,0,0.5);
-padding:60px;
-border-radius:15px;
-}
-.hero-content h1{
-font-size:70px;
-font-family:'Playfair Display',serif;
-color:#d4af37;
-}
-.hero-content p{
-font-size:26px;
-margin-top:20px;
-}
-.hero-content button{
-margin-top:40px;
-padding:18px 60px;
-font-size:20px;
-background:#d4af37;
-border:none;
-cursor:pointer;
-border-radius:10px;
-font-weight:bold;
-}
+.hero-carousel{position:relative;width:100%;height:100vh;overflow:hidden;}
+.hero-slide{position:absolute;width:100%;height:100%;background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease-in-out;}
+.hero-slide.active{opacity:1;}
+.hero-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;background:rgba(0,0,0,0.25);padding:60px;border-radius:15px;transition:.5s;}
+.hero-content h1{font-size:70px;font-family:'Playfair Display',serif;color:#d4af37;text-shadow:2px 2px 15px rgba(0,0,0,0.7);}
+.hero-content p{font-size:26px;margin-top:20px;}
+.hero-content button{margin-top:30px;padding:18px 60px;font-size:20px;background:#d4af37;border:none;cursor:pointer;border-radius:12px;font-weight:bold;transition:.3s;}
+.hero-content button:hover{transform:scale(1.05);}
 
-/* SECTION */
-section{
-padding:160px 8%;
-text-align:center;
-}
-section h2{
-font-size:60px;
-margin-bottom:40px;
-color:#d4af37;
-font-family:'Playfair Display',serif;
-}
+/* SECTIONS */
+section{padding:140px 8%;text-align:center;opacity:0;transform:translateY(50px);transition:1s;}
+section.show{opacity:1;transform:translateY(0);}
+section h2{font-size:60px;margin-bottom:40px;color:#d4af37;font-family:'Playfair Display',serif;text-shadow:1px 1px 10px #000;}
 
 /* HOTEL GALLERY */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-margin-top:50px;
-}
-.gallery img{
-width:100%;
-height:350px;
-object-fit:cover;
-border-radius:20px;
-transition:.4s;
-}
-.gallery img:hover{transform:scale(1.05)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-top:50px;}
+.gallery img{width:100%;height:350px;object-fit:cover;border-radius:20px;transition:.4s;}
+.gallery img:hover{transform:scale(1.05);}
 
 /* WEDDING */
-.wedding{
-background:
-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-url('images/wedding.jpg');
-background-size:cover;
-background-position:center;
-}
-.wedding p{
-font-size:24px;
-line-height:1.8;
-max-width:1000px;
-margin:auto;
-margin-bottom:60px;
-}
-.wedding-btn{
-padding:20px 70px;
-font-size:22px;
-background:#d4af37;
-border:none;
-cursor:pointer;
-border-radius:12px;
-font-weight:bold;
-}
+.wedding{background:linear-gradient(rgba(0,0,0,0.15),rgba(0,0,0,0.15)),url('images/wedding.jpg');background-size:cover;background-position:center;padding:160px 8%;}
+.wedding p{font-size:24px;line-height:1.8;max-width:1000px;margin:auto;margin-bottom:60px;}
+.wedding-btn{padding:20px 70px;font-size:22px;background:#d4af37;border:none;cursor:pointer;border-radius:12px;font-weight:bold;transition:.3s;}
+.wedding-btn:hover{transform:scale(1.05);}
 
 /* RESTAURANT */
-.restaurant{
-background:#111;
-}
-.food-gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:50px;
-}
-.food-gallery img{
-width:100%;
-height:280px;
-object-fit:cover;
-border-radius:15px;
-transition:.4s;
-}
-.food-gallery img:hover{transform:scale(1.05)}
+.restaurant{background:#111;}
+.food-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:50px;}
+.food-gallery img{width:100%;height:280px;object-fit:cover;border-radius:15px;transition:.4s;}
+.food-gallery img:hover{transform:scale(1.05);}
 
 /* BOOKING */
-.booking-form{
-max-width:700px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:20px;
-margin-top:40px;
-}
-.booking-form input,
-.booking-form textarea{
-padding:15px;
-border-radius:10px;
-border:none;
-font-size:18px;
-}
-.booking-form button{
-padding:18px;
-background:#d4af37;
-border:none;
-font-size:20px;
-font-weight:bold;
-cursor:pointer;
-border-radius:10px;
-}
+.booking-form{max-width:700px;margin:auto;display:flex;flex-direction:column;gap:20px;margin-top:40px;}
+.booking-form input, .booking-form textarea{padding:15px;border-radius:10px;border:none;font-size:18px;}
+.booking-form button{padding:18px;background:#25D366;border:none;font-size:20px;font-weight:bold;cursor:pointer;border-radius:10px;transition:.3s;}
+.booking-form button:hover{transform:scale(1.05);}
 
 /* LOCATION */
-.location-btn{
-margin-top:50px;
-padding:20px 60px;
-font-size:22px;
-background:linear-gradient(45deg,#d4af37,#f8e28a);
-border:none;
-border-radius:50px;
-cursor:pointer;
-font-weight:bold;
-color:#000;
-transition:.4s;
-}
-.location-btn:hover{
-transform:scale(1.08);
-}
+.location-btn{margin-top:50px;padding:20px 60px;font-size:22px;background:linear-gradient(45deg,#d4af37,#f8e28a);border:none;border-radius:50px;cursor:pointer;font-weight:bold;color:#000;transition:.4s;}
+.location-btn:hover{transform:scale(1.08);}
 
 /* FOOTER */
-footer{
-background:#000;
-padding:60px;
-text-align:center;
-font-size:18px;
-}
+footer{background:#000;padding:60px;text-align:center;font-size:18px;}
 
-/* ANIMATION */
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-.show{
-opacity:1;
-transform:translateY(0);
-}
-
+/* MEDIA */
 @media(max-width:768px){
-.hero-content h1{font-size:40px}
-section h2{font-size:32px}
+.hero-content h1{font-size:40px;}
+section h2{font-size:32px;}
 }
+
 </style>
 </head>
-
 <body>
 
-<nav>
+<nav id="navbar">
 <div class="logo">THE NAORI</div>
 <div>
 <a href="#hotel">Hotel</a>
@@ -254,50 +96,36 @@ section h2{font-size:32px}
   <div class="hero-content">
     <h1>Luxury Boutique Hotel</h1>
     <p>₹3,500 Per Night • AC • Free WiFi • Restaurant • Parking</p>
-    <button onclick="window.location.href='tel:07424811517'">Book Now</button>
+    <button onclick="window.open('https://wa.me/919109196806?text=Hello,%20I%20want%20to%20book%20a%20stay%20at%20The%20Naori','_blank')">Book Now via WhatsApp</button>
   </div>
 </div>
 
 <!-- HOTEL SECTION -->
-<section id="hotel" class="fade">
+<section id="hotel">
 <h2>Welcome To The Naori</h2>
 <p style="font-size:22px;max-width:1000px;margin:auto;">
-Experience premium hospitality in Udaipur with modern luxury rooms,
-25,000 Sq Ft garden space and peaceful ambiance.
+Experience premium hospitality in Udaipur with modern luxury rooms, 25,000 Sq Ft garden space and peaceful ambiance.
 </p>
-
 <div class="gallery">
 <img src="images/IMG_2027.jpg">
 <img src="images/IMG_2028.jpg">
 <img src="images/IMG_2029.jpg">
 <img src="images/IMG_2030.jpg">
+<img src="images/IMG_2031.jpg">
 </div>
 </section>
 
 <!-- WEDDING SECTION -->
-<section id="wedding" class="wedding fade">
+<section id="wedding" class="wedding">
 <h2>Destination Wedding in Udaipur</h2>
-<p>
-Plan your dream destination wedding at THE NAORI.
-Our 25,000 sq ft grand garden is perfect for weddings,
-receptions and luxury celebrations.
-If anyone wants a destination wedding in Udaipur,
-contact us today.
-</p>
-<button class="wedding-btn"
-onclick="window.location.href='tel:9109196806'">
-Book Wedding Event
-</button>
+<p>Plan your dream destination wedding at THE NAORI. Our 25,000 sq ft grand garden is perfect for weddings, receptions, and luxury celebrations. Contact us today to book your dream event.</p>
+<button class="wedding-btn" onclick="window.open('https://wa.me/919109196806?text=Hello,%20I%20want%20to%20book%20a%20wedding%20at%20The%20Naori','_blank')">Book Wedding via WhatsApp</button>
 </section>
 
 <!-- RESTAURANT SECTION -->
-<section id="restaurant" class="restaurant fade">
+<section id="restaurant" class="restaurant">
 <h2>Our Restaurant</h2>
-<p style="font-size:22px;max-width:900px;margin:auto;">
-Why our food is better? We serve fresh ingredients,
-authentic taste and premium dining experience.
-</p>
-
+<p style="font-size:22px;max-width:900px;margin:auto;">We serve fresh ingredients, authentic taste, and a premium dining experience.</p>
 <div class="food-gallery">
 <img src="images/food1.jpg">
 <img src="images/food2.jpg">
@@ -307,64 +135,62 @@ authentic taste and premium dining experience.
 </section>
 
 <!-- BOOKING SECTION -->
-<section id="booking" class="fade">
+<section id="booking">
 <h2>Book Your Stay</h2>
-
-<form class="booking-form"
-action="https://formsubmit.co/YOUR-EMAIL-HERE"
-method="POST">
-
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<input type="date" name="date" required>
-<textarea name="message" rows="4" placeholder="Special Request"></textarea>
-<button type="submit">Submit Booking</button>
-
+<form class="booking-form">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="date" id="date" required>
+<textarea id="message" rows="4" placeholder="Special Request"></textarea>
+<button type="button" onclick="sendWhatsAppBooking()">Book via WhatsApp</button>
 </form>
 </section>
 
 <!-- LOCATION SECTION -->
-<section id="location" class="fade">
+<section id="location">
 <h2>Visit Us</h2>
 <p>Airport Road, Janakpuri, Transport Nagar, Udaipur</p>
-<button class="location-btn"
-onclick="window.location.href='https://maps.app.goo.gl/N8hmZvBEhG2ix5nd7?g_st=awb'">
-📍 View Location On Google Maps
-</button>
+<button class="location-btn" onclick="window.open('https://maps.app.goo.gl/N8hmZvBEhG2ix5nd7?g_st=awb','_blank')">📍 View Location</button>
 </section>
 
-<footer>
-© 2026 THE NAORI | Luxury Hotel & Destination Wedding Udaipur
-</footer>
+<footer>© 2026 THE NAORI | Luxury Hotel & Destination Wedding Udaipur</footer>
 
-<!-- JS FOR ANIMATION & CAROUSEL -->
 <script>
-// Fade-in scroll animation
-const faders = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-faders.forEach(el => {
-const rect = el.getBoundingClientRect();
-if(rect.top < window.innerHeight - 100){
-el.classList.add('show');
-}
+// SCROLL ANIMATION
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll',()=>{
+sections.forEach(sec=>{
+const rect = sec.getBoundingClientRect();
+if(rect.top < window.innerHeight - 100){sec.classList.add('show');}
 });
 });
 
-// Hero Carousel
+// HERO CAROUSEL
 let slides = document.querySelectorAll('.hero-slide');
 let current = 0;
-
 function showSlide(index){
-slides.forEach(slide => slide.classList.remove('active'));
+slides.forEach(s=>s.classList.remove('active'));
 slides[index].classList.add('active');
 }
-
-setInterval(() => {
+setInterval(()=>{
 current++;
-if(current >= slides.length) current = 0;
+if(current>=slides.length)current=0;
 showSlide(current);
-}, 5000);
-</script>
+},5000);
 
+// NAVBAR SCROLL EFFECT
+window.addEventListener('scroll',()=>{
+document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// WHATSAPP BOOKING
+function sendWhatsAppBooking(){
+let name=document.getElementById('name').value;
+let date=document.getElementById('date').value;
+let message=document.getElementById('message').value;
+let text=`Hello, I want to book a stay at The Naori.\nName: ${name}\nDate: ${date}\nRequest: ${message}`;
+let url=`https://wa.me/919109196806?text=${encodeURIComponent(text)}`;
+window.open(url,'_blank');
+}
+</script>
 </body>
-  </html>
+</html>
