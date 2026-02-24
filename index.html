@@ -1,4 +1,4 @@
-to<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -41,29 +41,46 @@ transition:.3s;
 }
 nav a:hover{color:#d4af37}
 
-/* HERO */
-.hero{
-  background:
-    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-    url('images/IMG_2024.jpg');
-  background-size: cover;
-  background-position: center;
+/* HERO CAROUSEL */
+.hero-carousel{
+position:relative;
+width:100%;
+height:100vh;
+overflow:hidden;
+}
+.hero-slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:opacity 1s ease-in-out;
+}
+.hero-slide.active{
+opacity:1;
 }
 .hero-content{
-background:rgba(0,0,0,0.6);
-padding:80px;
-border-radius:20px;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+z-index:10;
+background:rgba(0,0,0,0.5);
+padding:60px;
+border-radius:15px;
 }
-.hero h1{
-font-size:85px;
+.hero-content h1{
+font-size:70px;
 font-family:'Playfair Display',serif;
 color:#d4af37;
 }
-.hero p{
+.hero-content p{
 font-size:26px;
 margin-top:20px;
 }
-.hero button{
+.hero-content button{
 margin-top:40px;
 padding:18px 60px;
 font-size:20px;
@@ -104,7 +121,11 @@ transition:.4s;
 
 /* WEDDING */
 .wedding{
-background:linear-gradient(135deg,#000,#1a1a1a);
+background:
+linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+url('images/wedding.jpg');
+background-size:cover;
+background-position:center;
 }
 .wedding p{
 font-size:24px;
@@ -205,7 +226,7 @@ transform:translateY(0);
 }
 
 @media(max-width:768px){
-.hero h1{font-size:40px}
+.hero-content h1{font-size:40px}
 section h2{font-size:32px}
 }
 </style>
@@ -224,14 +245,20 @@ section h2{font-size:32px}
 </div>
 </nav>
 
-<div class="hero">
-<div class="hero-content">
-<h1>Luxury Boutique Hotel</h1>
-<p>₹3,500 Per Night • AC • Free WiFi • Restaurant • Parking</p>
-<button onclick="window.location.href='tel:07424811517'">Book Now</button>
-</div>
+<!-- HERO CAROUSEL -->
+<div class="hero-carousel">
+  <div class="hero-slide active" style="background-image:url('images/IMG_2024.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/IMG_2025.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/IMG_2026.jpg')"></div>
+  
+  <div class="hero-content">
+    <h1>Luxury Boutique Hotel</h1>
+    <p>₹3,500 Per Night • AC • Free WiFi • Restaurant • Parking</p>
+    <button onclick="window.location.href='tel:07424811517'">Book Now</button>
+  </div>
 </div>
 
+<!-- HOTEL SECTION -->
 <section id="hotel" class="fade">
 <h2>Welcome To The Naori</h2>
 <p style="font-size:22px;max-width:1000px;margin:auto;">
@@ -240,20 +267,21 @@ Experience premium hospitality in Udaipur with modern luxury rooms,
 </p>
 
 <div class="gallery">
-<img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa">
-<img src="https://images.unsplash.com/photo-1501117716987-c8e1ecb2104b">
-<img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4">
-<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945">
+<img src="images/IMG_2027.jpg">
+<img src="images/IMG_2028.jpg">
+<img src="images/IMG_2029.jpg">
+<img src="images/IMG_2030.jpg">
 </div>
 </section>
 
+<!-- WEDDING SECTION -->
 <section id="wedding" class="wedding fade">
 <h2>Destination Wedding in Udaipur</h2>
 <p>
 Plan your dream destination wedding at THE NAORI.
 Our 25,000 sq ft grand garden is perfect for weddings,
 receptions and luxury celebrations.
-If anyone wants destination wedding in Udaipur,
+If anyone wants a destination wedding in Udaipur,
 contact us today.
 </p>
 <button class="wedding-btn"
@@ -262,6 +290,7 @@ Book Wedding Event
 </button>
 </section>
 
+<!-- RESTAURANT SECTION -->
 <section id="restaurant" class="restaurant fade">
 <h2>Our Restaurant</h2>
 <p style="font-size:22px;max-width:900px;margin:auto;">
@@ -270,13 +299,14 @@ authentic taste and premium dining experience.
 </p>
 
 <div class="food-gallery">
-<img src="https://source.unsplash.com/400x400/?indian-food">
-<img src="https://source.unsplash.com/401x401/?restaurant-food">
-<img src="https://source.unsplash.com/402x402/?tandoori">
-<img src="https://source.unsplash.com/403x403/?dessert">
+<img src="images/food1.jpg">
+<img src="images/food2.jpg">
+<img src="images/food3.jpg">
+<img src="images/food4.jpg">
 </div>
 </section>
 
+<!-- BOOKING SECTION -->
 <section id="booking" class="fade">
 <h2>Book Your Stay</h2>
 
@@ -293,6 +323,7 @@ method="POST">
 </form>
 </section>
 
+<!-- LOCATION SECTION -->
 <section id="location" class="fade">
 <h2>Visit Us</h2>
 <p>Airport Road, Janakpuri, Transport Nagar, Udaipur</p>
@@ -306,7 +337,9 @@ onclick="window.location.href='https://maps.app.goo.gl/N8hmZvBEhG2ix5nd7?g_st=aw
 © 2026 THE NAORI | Luxury Hotel & Destination Wedding Udaipur
 </footer>
 
+<!-- JS FOR ANIMATION & CAROUSEL -->
 <script>
+// Fade-in scroll animation
 const faders = document.querySelectorAll('.fade');
 window.addEventListener('scroll', () => {
 faders.forEach(el => {
@@ -316,7 +349,22 @@ el.classList.add('show');
 }
 });
 });
+
+// Hero Carousel
+let slides = document.querySelectorAll('.hero-slide');
+let current = 0;
+
+function showSlide(index){
+slides.forEach(slide => slide.classList.remove('active'));
+slides[index].classList.add('active');
+}
+
+setInterval(() => {
+current++;
+if(current >= slides.length) current = 0;
+showSlide(current);
+}, 5000);
 </script>
 
 </body>
-</html>
+  </html>
